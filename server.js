@@ -11,6 +11,9 @@ const port = process.env.PORT || 5000;
 app.use(bodyParser.json());
 app.use(cors());
 
+//health-check endpoint
+app.route("/health").get( res.send('Works!'));
+
 // POST route to send email
 // POST route to send email
 app.post('/send-email', async (req, res) => {
@@ -28,7 +31,7 @@ app.post('/send-email', async (req, res) => {
     // Email details
     let mailOptions = {
         from: email,
-        to: 'kambleshubhankar@gmail.com',  // Email where you want to receive the inquiries
+        to: 'studiorangeen.art@gmail.com',  // Email where you want to receive the inquiries
         subject: 'New Inquiry from Contact Form',
         html: `
             <strong>You got an enquiry from your website:</strong><br><br>
